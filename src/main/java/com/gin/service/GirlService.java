@@ -2,15 +2,12 @@ package com.gin.service;
 
 import com.gin.domain.Girl;
 import com.gin.enums.ResultEnum;
-import com.gin.exception.GirlException;
+import com.gin.exception.MyRuntimeException;
 import com.gin.repository.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.Optional;
 
 /**
  * Created by Jean on 2018/8/2.
@@ -44,10 +41,10 @@ public class GirlService {
         int age = 8;
         if (age < 10) {
             //返回 你还在上小学
-            throw new GirlException(ResultEnum.PRIMARY_SCHOOL);
+            throw new MyRuntimeException(ResultEnum.PRIMARY_SCHOOL);
         }else if (age >10 && age < 16) {
             //返回 你可能在上初中
-            throw new GirlException(ResultEnum.MIDDLE_SCHOOL);
+            throw new MyRuntimeException(ResultEnum.MIDDLE_SCHOOL);
         }
 
 

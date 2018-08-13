@@ -22,7 +22,7 @@ public class ResultUtil {
 
     public static Result error(Integer code, String msg) {
         Result result = new Result();
-        result.setCode(1);
+        result.setCode(code);
         result.setMsg(msg);
         result.setContent(null);
         return result;

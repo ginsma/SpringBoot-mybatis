@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gin.mapper.SysPeopleLoginMapper" >
+    <select id="querySysPeopleLoginEntity"
+            parameterType="com.gin.domain.SysPeopleLoginEntity"
+            resultType="com.gin.domain.SysPeopleLoginEntity">
+        SELECT id AS id,
+               password AS password,
+               ehr_id AS ehrId,
+               client_id AS clientId,
+               login_type AS loginType,
+               session_id AS sessionId,
+               login_time AS loginTime,
+               timeout_time AS timeoutTime,
+               login_status as loginStatus,
+               login_count as loginCount
+        FROM sys_people_login
+        WHERE ehr_id = #{ehrId}
+              AND client_id = '100'
+        <if test="password != null and password != ''" >
+              AND password = #{password}
+        </if>
+    </select>
+
+</mapper>
